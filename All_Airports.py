@@ -36,7 +36,11 @@ class AllAirports:
                 
                 for line in lines:
                     country = line[3]
+                    if country not in country_currency:
+                        continue
                     currency = country_currency[country]
+                    if currency not in currency_rates:
+                        continue
                     rate = currency_rates[currency]
                     airports[line[4]] = Airport(line[4], line[1], line[2], line[3], line[6], line[7], rate)
                 
